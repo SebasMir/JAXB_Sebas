@@ -36,6 +36,7 @@ public class Ejer1501_JAXB {
         // TODO code application logic here
         cargarCSV();
         System.out.println("\033[31mFichero resu.xml generado.");
+        System.out.println("ESto es una prueba de github plssss");
     }
 
     public static void cargarCSV()  {
