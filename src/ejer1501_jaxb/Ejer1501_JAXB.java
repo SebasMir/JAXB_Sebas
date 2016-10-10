@@ -57,6 +57,7 @@ public class Ejer1501_JAXB {
                 Root.Row persona = new Root.Row();
 
                 String nom = personas_csv.get("Nombre");
+                
                 persona.setNombre(nom);
 
                 String apellido = personas_csv.get("Apellidos");
