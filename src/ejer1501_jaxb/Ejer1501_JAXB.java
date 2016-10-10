@@ -32,18 +32,20 @@ public class Ejer1501_JAXB {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws DatatypeConfigurationException {
+    public static void main(String[] args)  {
         // TODO code application logic here
         cargarCSV();
+        System.out.println("\033[31mFichero resu.xml generado.");
     }
 
-    public static void cargarCSV() throws DatatypeConfigurationException {
+    public static void cargarCSV()  {
 
         try {
             File file = new File("resu.xml");
 
             CsvReader personas_csv = new CsvReader("src/Schema/personas.csv");
             personas_csv.readHeaders();
+            
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             GregorianCalendar c = new GregorianCalendar();
             XMLGregorianCalendar date2;
@@ -62,7 +64,6 @@ public class Ejer1501_JAXB {
 
                 String num = personas_csv.get("Num");
                 int valor = Integer.parseInt(num);
-
                 persona.setNum(valor);
 
                 String fechanaz = personas_csv.get("FechaNacimiento");
@@ -89,6 +90,8 @@ public class Ejer1501_JAXB {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException ex) {
+            Logger.getLogger(Ejer1501_JAXB.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DatatypeConfigurationException ex) {
             Logger.getLogger(Ejer1501_JAXB.class.getName()).log(Level.SEVERE, null, ex);
         }
 
