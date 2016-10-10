@@ -32,22 +32,21 @@ public class Ejer1501_JAXB {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         // TODO code application logic here
         cargarCSV();
         System.out.println("\033[31mFichero resu.xml generado.");
 
-        
     }
 
-    public static void cargarCSV()  {
+    public static void cargarCSV() {
 
         try {
             File file = new File("resu.xml");
 
             CsvReader personas_csv = new CsvReader("src/Schema/personas.csv");
             personas_csv.readHeaders();
-            
+
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             GregorianCalendar c = new GregorianCalendar();
             XMLGregorianCalendar date2;
@@ -59,7 +58,7 @@ public class Ejer1501_JAXB {
                 Root.Row persona = new Root.Row();
 
                 String nom = personas_csv.get("Nombre");
-                
+
                 persona.setNombre(nom);
 
                 String apellido = personas_csv.get("Apellidos");
